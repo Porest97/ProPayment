@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProPayment.Models
 {
-    public class RefereeFee
+    public class HockeyMatch
     {
         public int Id { get; set; }
 
-        public string RefereeFeeName { get; set; }
-
-        public string RefereeFeeCategory { get; set; }
-        [DataType(DataType.Currency)]
-        public int? RefereeFeeValue { get; set; }
-
+        [Display(Name = "Match")]
+        public string MatchName { get; set; }
     }
 }
