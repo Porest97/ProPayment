@@ -1,0 +1,101 @@
+﻿@model ProPayment.Models.PROMatch
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PROMatch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PROMatchNumber" class="control-label"></label>
+                <input asp-for="PROMatchNumber" class="form-control" />
+                <span asp-validation-for="PROMatchNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchDescription" class="control-label"></label>
+                <input asp-for="MatchDescription" class="form-control" />
+                <span asp-validation-for="MatchDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchDateTime" class="control-label"></label>
+                <input asp-for="MatchDateTime" class="form-control" />
+                <span asp-validation-for="MatchDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Arena" class="control-label"></label>
+                <input asp-for="Arena" class="form-control" />
+                <span asp-validation-for="Arena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeam" class="control-label"></label>
+                <input asp-for="HomeTeam" class="form-control" />
+                <span asp-validation-for="HomeTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeam" class="control-label"></label>
+                <input asp-for="AwayTeam" class="form-control" />
+                <span asp-validation-for="AwayTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreHomeTeam" class="control-label"></label>
+                <input asp-for="ScoreHomeTeam" class="form-control" />
+                <span asp-validation-for="ScoreHomeTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreAwayTeam" class="control-label"></label>
+                <input asp-for="ScoreAwayTeam" class="form-control" />
+                <span asp-validation-for="ScoreAwayTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ref1" class="control-label"></label>
+                <input asp-for="Ref1" class="form-control" />
+                <span asp-validation-for="Ref1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ref2" class="control-label"></label>
+                <input asp-for="Ref2" class="form-control" />
+                <span asp-validation-for="Ref2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ref3" class="control-label"></label>
+                <input asp-for="Ref3" class="form-control" />
+                <span asp-validation-for="Ref3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ref4" class="control-label"></label>
+                <input asp-for="Ref4" class="form-control" />
+                <span asp-validation-for="Ref4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TournamentId" class="control-label"></label>
+                <select asp-for="TournamentId" class ="form-control" asp-items="ViewBag.TournamentId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchNumberTSM" class="control-label"></label>
+                <input asp-for="MatchNumberTSM" class="form-control" />
+                <span asp-validation-for="MatchNumberTSM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeId" class="control-label"></label>
+                <select asp-for="RefereeId" class ="form-control" asp-items="ViewBag.RefereeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

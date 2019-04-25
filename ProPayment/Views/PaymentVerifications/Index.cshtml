@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ProPayment.Models.PaymentVerification>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Utbetalningsverifikationer</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ssn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfMatches)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfAsHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfAsLD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelKost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMatchStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alowance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccountNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ssn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfMatches)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAsHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAsLD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelKost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMatchStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alowance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournament.TournamentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankAccountNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

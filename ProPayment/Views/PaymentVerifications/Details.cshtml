@@ -1,0 +1,102 @@
+﻿@model ProPayment.Models.PaymentVerification
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PaymentVerification</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ssn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ssn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RefName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RefName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfMatches)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfMatches)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfAsHD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfAsHD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfAsLD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfAsLD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FeeHD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FeeHD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FeeLD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FeeLD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelKost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelKost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LateMatchStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LateMatchStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alowance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alowance)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPayment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPayment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tournament)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tournament.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BankAccountNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BankAccountNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
