@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPayment.Models;
 
 namespace ProPayment.Migrations
 {
     [DbContext(typeof(ProPaymentContext))]
-    partial class ProPaymentContextModelSnapshot : ModelSnapshot
+    [Migration("20190428081123_WorkoutDuration")]
+    partial class WorkoutDuration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,9 +155,9 @@ namespace ProPayment.Migrations
 
                     b.Property<DateTime>("StartDateTime");
 
-                    b.Property<double?>("WorkoutDistance");
+                    b.Property<decimal?>("WorkoutDistance");
 
-                    b.Property<double?>("WorkoutDuration");
+                    b.Property<decimal?>("WorkoutDuration");
 
                     b.HasKey("Id");
 

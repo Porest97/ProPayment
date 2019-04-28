@@ -1,25 +1,25 @@
-﻿@model IEnumerable<ProPayment.Models.RefereeFee>
+﻿@model IEnumerable<ProPayment.Models.MatchFee>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Domar Ersättningar</h1>
+<h1>Matcharvoden Region Öst 2019-2020</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table-striped table-responsive-xl" id="RefereeFeeList">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeName)
+                @Html.DisplayNameFor(model => model.MatchFeeString)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeCategory)
+                @Html.DisplayNameFor(model => model.HDFee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeValue)
+                @Html.DisplayNameFor(model => model.LDFee)
             </th>
             <th></th>
         </tr>
@@ -28,13 +28,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeName)
+                @Html.DisplayFor(modelItem => item.MatchFeeString)
+            <td>
+                @Html.DisplayFor(modelItem => item.HDFee)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeValue)
+                @Html.DisplayFor(modelItem => item.LDFee)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

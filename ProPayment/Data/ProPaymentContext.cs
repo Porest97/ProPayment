@@ -27,5 +27,11 @@ namespace ProPayment.Models
         public DbSet<ProPayment.Models.PROMatch> PROMatch { get; set; }
 
         public DbSet<ProPayment.Models.RefereeReceipt> RefereeReceipt { get; set; }
+
+        public DbSet<ProPayment.Models.MatchFee> MatchFee { get; set; }
+
+        public DbSet<ProPayment.Models.PROWorkouts> PROWorkouts { get; set; }
+
+        public DbSet<ProPayment.Models.Sport> Sport { get; set; }
     }
 }

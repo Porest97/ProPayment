@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPayment.Models;
 
 namespace ProPayment.Migrations
 {
     [DbContext(typeof(ProPaymentContext))]
-    partial class ProPaymentContextModelSnapshot : ModelSnapshot
+    [Migration("20190427060356_SeriesCategoryInMatchFee")]
+    partial class SeriesCategoryInMatchFee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,29 +143,6 @@ namespace ProPayment.Migrations
                     b.ToTable("PROMatch");
                 });
 
-            modelBuilder.Entity("ProPayment.Models.PROWorkouts", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndDateTime");
-
-                    b.Property<int?>("SportId");
-
-                    b.Property<DateTime>("StartDateTime");
-
-                    b.Property<double?>("WorkoutDistance");
-
-                    b.Property<double?>("WorkoutDuration");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SportId");
-
-                    b.ToTable("PROWorkouts");
-                });
-
             modelBuilder.Entity("ProPayment.Models.PaymentVerification", b =>
                 {
                     b.Property<int>("Id")
@@ -280,21 +259,6 @@ namespace ProPayment.Migrations
                     b.ToTable("RefereeReceipt");
                 });
 
-            modelBuilder.Entity("ProPayment.Models.Sport", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("KcalPerMinute");
-
-                    b.Property<string>("SportName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sport");
-                });
-
             modelBuilder.Entity("ProPayment.Models.Tournament", b =>
                 {
                     b.Property<int>("Id")
@@ -328,13 +292,6 @@ namespace ProPayment.Migrations
                     b.HasOne("ProPayment.Models.Tournament", "Tournament")
                         .WithMany()
                         .HasForeignKey("TournamentId");
-                });
-
-            modelBuilder.Entity("ProPayment.Models.PROWorkouts", b =>
-                {
-                    b.HasOne("ProPayment.Models.Sport", "Sport")
-                        .WithMany()
-                        .HasForeignKey("SportId");
                 });
 
             modelBuilder.Entity("ProPayment.Models.PaymentVerification", b =>

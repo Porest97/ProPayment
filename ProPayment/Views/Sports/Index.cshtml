@@ -1,25 +1,22 @@
-﻿@model IEnumerable<ProPayment.Models.RefereeFee>
+﻿@model IEnumerable<ProPayment.Models.Sport>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Domar Ersättningar</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table-striped table-responsive-xl" id="RefereeFeeList">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeName)
+                @Html.DisplayNameFor(model => model.SportName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RefereeFeeValue)
+                @Html.DisplayNameFor(model => model.KcalPerMinute)
             </th>
             <th></th>
         </tr>
@@ -28,13 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeName)
+                @Html.DisplayFor(modelItem => item.SportName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RefereeFeeValue)
+                @Html.DisplayFor(modelItem => item.KcalPerMinute)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
