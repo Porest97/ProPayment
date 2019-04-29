@@ -33,5 +33,7 @@ namespace ProPayment.Models
         public DbSet<ProPayment.Models.PROWorkouts> PROWorkouts { get; set; }
 
         public DbSet<ProPayment.Models.Sport> Sport { get; set; }
+
+        public DbSet<ProPayment.Models.Receipt> Receipt { get; set; }
     }
 }
