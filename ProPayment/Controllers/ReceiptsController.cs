@@ -21,7 +21,7 @@ namespace ProPayment.Controllers
         // GET: Receipts
         public async Task<IActionResult> Index()
         {
-            var proPaymentContext = _context.Receipt.Include(r => r.HockeyMatch).Include(r => r.Referee);
+            var proPaymentContext = _context.Receipt.Include(r => r.Arena).Include(r => r.HockeyMatch).Include(r => r.Referee);
             return View(await proPaymentContext.ToListAsync());
         }
         // GET: Receipts
@@ -29,6 +29,7 @@ namespace ProPayment.Controllers
         public IActionResult Index(Receipt receipt)
         {
             var proPaymentContext = _context.Receipt.Include(r => r.HockeyMatch);
+            receipt.TravelCost = receipt.TravelDistance * receipt.TravelFee;
             receipt.TotalPayment = receipt.Fee + receipt.Alowence + receipt.TravelCost + receipt.LateMatchStart;
             return View(receipt);
         }
@@ -42,6 +43,7 @@ namespace ProPayment.Controllers
             }
 
             var receipt = await _context.Receipt
+                .Include(r => r.Arena)
                 .Include(r => r.HockeyMatch)
                 .Include(r => r.Referee)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -56,6 +58,7 @@ namespace ProPayment.Controllers
         // GET: Receipts/Create
         public IActionResult Create()
         {
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id");
             ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id");
             ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id");
             return View();
@@ -66,16 +69,18 @@ namespace ProPayment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MatchDateTime,HockeyMatchId,RefereeId,MatchName,Fee,Alowence,TravelCost,LateMatchStart,TotalPayment")] Receipt receipt)
+        public async Task<IActionResult> Create([Bind("Id,MatchDateTime,ArenaId,HockeyMatchId,RefereeId,MatchName,Fee,Alowence,TravelDistance,TravelFee,TravelCost,LateMatchStart,TotalPayment")] Receipt receipt)
         {
             if (ModelState.IsValid)
             {
+                receipt.TravelCost = receipt.TravelDistance * receipt.TravelFee;
                 receipt.TotalPayment = receipt.Fee + receipt.Alowence + receipt.TravelCost + receipt.LateMatchStart;
                 _context.Add(receipt);
                 _context.Add(receipt);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
             ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
             ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
             return View(receipt);
@@ -94,6 +99,7 @@ namespace ProPayment.Controllers
             {
                 return NotFound();
             }
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
             ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
             ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
             return View(receipt);
@@ -104,7 +110,7 @@ namespace ProPayment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MatchDateTime,HockeyMatchId,RefereeId,MatchName,Fee,Alowence,TravelCost,LateMatchStart,TotalPayment")] Receipt receipt)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MatchDateTime,ArenaId,HockeyMatchId,RefereeId,MatchName,Fee,Alowence,TravelDistance,TravelFee,TravelCost,LateMatchStart,TotalPayment")] Receipt receipt)
         {
             if (id != receipt.Id)
             {
@@ -115,6 +121,7 @@ namespace ProPayment.Controllers
             {
                 try
                 {
+                    receipt.TravelCost = receipt.TravelDistance * receipt.TravelFee;
                     receipt.TotalPayment = receipt.Fee + receipt.Alowence + receipt.TravelCost + receipt.LateMatchStart;
                     _context.Update(receipt);
                     await _context.SaveChangesAsync();
@@ -132,6 +139,7 @@ namespace ProPayment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
             ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
             ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
             return View(receipt);
@@ -146,6 +154,7 @@ namespace ProPayment.Controllers
             }
 
             var receipt = await _context.Receipt
+                .Include(r => r.Arena)
                 .Include(r => r.HockeyMatch)
                 .Include(r => r.Referee)
                 .FirstOrDefaultAsync(m => m.Id == id);

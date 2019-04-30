@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPayment.Models;
 
 namespace ProPayment.Migrations
 {
     [DbContext(typeof(ProPaymentContext))]
-    partial class ProPaymentContextModelSnapshot : ModelSnapshot
+    [Migration("20190430045745_ReceiptAndArenaReWhroted")]
+    partial class ReceiptAndArenaReWhroted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,7 +240,9 @@ namespace ProPayment.Migrations
 
                     b.Property<double?>("Alowence");
 
-                    b.Property<int?>("ArenaId");
+                    b.Property<string>("ArenaId");
+
+                    b.Property<int?>("ArenaId1");
 
                     b.Property<double?>("Fee");
 
@@ -262,7 +266,7 @@ namespace ProPayment.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArenaId");
+                    b.HasIndex("ArenaId1");
 
                     b.HasIndex("HockeyMatchId");
 
@@ -414,7 +418,7 @@ namespace ProPayment.Migrations
                 {
                     b.HasOne("ProPayment.Models.Arena", "Arena")
                         .WithMany()
-                        .HasForeignKey("ArenaId");
+                        .HasForeignKey("ArenaId1");
 
                     b.HasOne("ProPayment.Models.HockeyMatch", "HockeyMatch")
                         .WithMany()

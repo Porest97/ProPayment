@@ -14,17 +14,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <div class="form-group">
-                    <label asp-for="MatchDateTime" class="control-label"></label>
-                    <input asp-for="MatchDateTime" class="form-control" />
-                    <span asp-validation-for="MatchDateTime" class="text-danger"></span>
-                </div>
-                <label asp-for="HockeyMatchId" class="control-label"></label>
+                <label asp-for="MatchDateTime" class="control-label"></label>
+                <input asp-for="MatchDateTime" class="form-control" />
+                <span asp-validation-for="MatchDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyMatch" class="control-label"></label>
                 <select asp-for="HockeyMatchId" class="form-control" asp-items="ViewBag.HockeyMatchId"></select>
                 <span asp-validation-for="HockeyMatchId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RefereeId" class="control-label"></label>
+                <label asp-for="Arena" class="control-label"></label>
+                <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
+                <span asp-validation-for="ArenaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Referee" class="control-label"></label>
                 <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
                 <span asp-validation-for="RefereeId" class="text-danger"></span>
             </div>
