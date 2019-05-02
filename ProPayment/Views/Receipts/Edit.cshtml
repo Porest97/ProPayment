@@ -19,19 +19,16 @@
                 <span asp-validation-for="MatchDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HockeyMatch" class="control-label"></label>
-                <select asp-for="HockeyMatchId" class="form-control" asp-items="ViewBag.HockeyMatchId"></select>
-                <span asp-validation-for="HockeyMatchId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Arena" class="control-label"></label>
                 <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
-                <span asp-validation-for="ArenaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyMatch" class="control-label"></label>
+                <select asp-for="HockeyMatchId" class="form-control" asp-items="ViewBag.HockeyMatchId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Referee" class="control-label"></label>
                 <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
-                <span asp-validation-for="RefereeId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MatchName" class="control-label"></label>
@@ -47,6 +44,16 @@
                 <label asp-for="Alowence" class="control-label"></label>
                 <input asp-for="Alowence" class="form-control" />
                 <span asp-validation-for="Alowence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDistance" class="control-label"></label>
+                <input asp-for="TravelDistance" class="form-control" />
+                <span asp-validation-for="TravelDistance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelFee" class="control-label"></label>
+                <input asp-for="TravelFee" class="form-control" />
+                <span asp-validation-for="TravelFee" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TravelCost" class="control-label"></label>

@@ -44,6 +44,19 @@ namespace ProPayment.Migrations
                     b.ToTable("Arena");
                 });
 
+            modelBuilder.Entity("ProPayment.Models.AwayTeam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AwayTeamName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AwayTeam");
+                });
+
             modelBuilder.Entity("ProPayment.Models.CupOnlineMatch", b =>
                 {
                     b.Property<int>("Id")
@@ -96,6 +109,74 @@ namespace ProPayment.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HockeyMatch");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.HomeTeam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("HomeTeamName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HomeTeam");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Match", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("HomeTeamId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<int?>("Referee1Id");
+
+                    b.Property<int?>("Referee2Id");
+
+                    b.Property<int?>("Referee3Id");
+
+                    b.Property<int?>("Referee4Id");
+
+                    b.Property<int?>("RefereeId");
+
+                    b.Property<int?>("TournamentId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("AwayTeamId");
+
+                    b.HasIndex("HomeTeamId");
+
+                    b.HasIndex("Referee1Id");
+
+                    b.HasIndex("Referee2Id");
+
+                    b.HasIndex("Referee3Id");
+
+                    b.HasIndex("Referee4Id");
+
+                    b.HasIndex("RefereeId");
+
+                    b.HasIndex("TournamentId");
+
+                    b.ToTable("Match");
                 });
 
             modelBuilder.Entity("ProPayment.Models.MatchFee", b =>
@@ -258,8 +339,6 @@ namespace ProPayment.Migrations
 
                     b.Property<double?>("TravelDistance");
 
-                    b.Property<double?>("TravelFee");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArenaId");
@@ -304,6 +383,130 @@ namespace ProPayment.Migrations
                     b.HasIndex("PROMatchId");
 
                     b.ToTable("Referee");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Referee1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<int?>("RefNumber");
+
+                    b.Property<string>("Ssn");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Referee1");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Referee2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<int?>("RefNumber");
+
+                    b.Property<string>("Ssn");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Referee2");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Referee3", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<int?>("RefNumber");
+
+                    b.Property<string>("Ssn");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Referee3");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Referee4", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<int?>("RefNumber");
+
+                    b.Property<string>("Ssn");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Referee4");
                 });
 
             modelBuilder.Entity("ProPayment.Models.RefereeFee", b =>
@@ -380,6 +583,45 @@ namespace ProPayment.Migrations
 
             modelBuilder.Entity("ProPayment.Models.CupOnlineMatch", b =>
                 {
+                    b.HasOne("ProPayment.Models.Tournament", "Tournament")
+                        .WithMany()
+                        .HasForeignKey("TournamentId");
+                });
+
+            modelBuilder.Entity("ProPayment.Models.Match", b =>
+                {
+                    b.HasOne("ProPayment.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("ProPayment.Models.AwayTeam", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("AwayTeamId");
+
+                    b.HasOne("ProPayment.Models.HomeTeam", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("HomeTeamId");
+
+                    b.HasOne("ProPayment.Models.Referee1", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("Referee1Id");
+
+                    b.HasOne("ProPayment.Models.Referee2", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("Referee2Id");
+
+                    b.HasOne("ProPayment.Models.Referee3", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("Referee3Id");
+
+                    b.HasOne("ProPayment.Models.Referee4", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("Referee4Id");
+
+                    b.HasOne("ProPayment.Models.Referee", "Referee")
+                        .WithMany()
+                        .HasForeignKey("RefereeId");
+
                     b.HasOne("ProPayment.Models.Tournament", "Tournament")
                         .WithMany()
                         .HasForeignKey("TournamentId");

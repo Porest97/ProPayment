@@ -37,5 +37,7 @@ namespace ProPayment.Models
         public DbSet<ProPayment.Models.Receipt> Receipt { get; set; }
 
         public DbSet<ProPayment.Models.Arena> Arena { get; set; }
+               
+        public DbSet<ProPayment.Models.Match> Match { get; set; }
     }
 }

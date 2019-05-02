@@ -8,7 +8,7 @@ namespace ProPayment.Models
 {
     public class Receipt
     {
-        internal readonly object PROMatch;
+        
 
         public int Id { get; set; }
 
@@ -41,7 +41,7 @@ namespace ProPayment.Models
 
         [Display(Name = "Reseersättning / km")]
         [DataType(DataType.Currency)]
-        public double? TravelFee { get; set; }
+        public double? TravelFee { get; } = 3;
 
         [Display(Name = "Resa i km")]
         public double? TravelDistance { get; set; }

@@ -48,8 +48,8 @@ namespace ProPayment.Controllers
         // GET: PROMatches/Create
         public IActionResult Create()
         {
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id");
-            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "Id");
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName");
+            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "TournamentName");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace ProPayment.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", pROMatch.RefereeId);
-            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "Id", pROMatch.TournamentId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", pROMatch.RefereeId);
+            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "TournamentName", pROMatch.TournamentId);
             return View(pROMatch);
         }
 
@@ -84,8 +84,8 @@ namespace ProPayment.Controllers
             {
                 return NotFound();
             }
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", pROMatch.RefereeId);
-            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "Id", pROMatch.TournamentId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", pROMatch.RefereeId);
+            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "TournamentName", pROMatch.TournamentId);
             return View(pROMatch);
         }
 
@@ -121,8 +121,8 @@ namespace ProPayment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", pROMatch.RefereeId);
-            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "Id", pROMatch.TournamentId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", pROMatch.RefereeId);
+            ViewData["TournamentId"] = new SelectList(_context.Tournament, "Id", "TournamentName", pROMatch.TournamentId);
             return View(pROMatch);
         }
 

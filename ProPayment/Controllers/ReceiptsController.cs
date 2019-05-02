@@ -58,9 +58,9 @@ namespace ProPayment.Controllers
         // GET: Receipts/Create
         public IActionResult Create()
         {
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id");
-            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id");
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id");
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName");
+            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "MatchName");
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName");
             return View();
         }
 
@@ -76,13 +76,13 @@ namespace ProPayment.Controllers
                 receipt.TravelCost = receipt.TravelDistance * receipt.TravelFee;
                 receipt.TotalPayment = receipt.Fee + receipt.Alowence + receipt.TravelCost + receipt.LateMatchStart;
                 _context.Add(receipt);
-                _context.Add(receipt);
+               
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
-            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", receipt.ArenaId);
+            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "MatchName", receipt.HockeyMatchId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", receipt.RefereeId);
             return View(receipt);
         }
 
@@ -99,9 +99,9 @@ namespace ProPayment.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
-            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", receipt.ArenaId);
+            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "MatchName", receipt.HockeyMatchId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", receipt.RefereeId);
             return View(receipt);
         }
 
@@ -139,9 +139,9 @@ namespace ProPayment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "Id", receipt.ArenaId);
-            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "Id", receipt.HockeyMatchId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "Id", receipt.RefereeId);
+            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", receipt.ArenaId);
+            ViewData["HockeyMatchId"] = new SelectList(_context.Set<HockeyMatch>(), "Id", "MatchName", receipt.HockeyMatchId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", receipt.RefereeId);
             return View(receipt);
         }
 
